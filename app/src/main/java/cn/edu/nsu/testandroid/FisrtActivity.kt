@@ -14,22 +14,22 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class FirstActivity : AppCompatActivity() {
-    val tag="FirstActivity"
+    val tag = "FirstActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.first_layout)
-        Log.d(tag,"onCreate")
-        val startSecondActivity=findViewById<Button>(R.id.button)
-        startSecondActivity.setOnClickListener(){
-            val  intent = Intent(this, SecondActivity::class.java)
+        Log.d(tag, "onCreate")
+        val startSecondActivity = findViewById<Button>(R.id.button)
+        startSecondActivity.setOnClickListener {
+            val intent = Intent(this, SecondActivity::class.java)
 //            intent.putExtra("userName","Jack")
 //            intent.putExtra("userAge",20)
-            val bundle =Bundle()
-            bundle.putString("userName","Jack")
-            bundle.putInt("userAge",20)
-            intent.putExtra("message",bundle)
-             startActivityForResult(intent,1)
+            val bundle = Bundle()
+            bundle.putString("userName", "Jack")
+            bundle.putInt("userAge", 20)
+            intent.putExtra("message", bundle)
+            startActivityForResult(intent, 1)
 //            val it = Intent() //创建一个Intent对象
 
             //使用setComponent方法设置组件名称
@@ -51,6 +51,7 @@ class FirstActivity : AppCompatActivity() {
 //            startActivity(intent)
         }
     }
+
     override fun onStart() {
         super.onStart()
         Log.d(tag, "onStart")
@@ -85,12 +86,13 @@ class FirstActivity : AppCompatActivity() {
         super.onRestart()
         Log.d(tag, "onRestart")
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
             1 -> if (resultCode == RESULT_OK) {
                 val returnData = data?.getStringExtra("data")
-                Log.d(tag,"$returnData")
+                Log.d(tag, "$returnData")
             }
         }
     }
