@@ -1,17 +1,11 @@
 package cn.edu.nsu.testandroid
 
-import android.content.ComponentName
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import androidx.activity.ComponentActivity
-import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material3.SecondaryTabRow
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class FirstActivity : AppCompatActivity() {
     val tag = "FirstActivity"
@@ -20,6 +14,15 @@ class FirstActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.first_layout)
         Log.d(tag, "onCreate")
+        val requestDataLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+                    result ->
+                if (result.resultCode == RESULT_OK) {
+                    val returnedData = result.data?.getStringExtra("data")
+                    Log.d(tag, "$returnedData")
+                }
+
+            }
         val startSecondActivity = findViewById<Button>(R.id.button)
         startSecondActivity.setOnClickListener {
             val intent = Intent(this, SecondActivity::class.java)
@@ -29,7 +32,8 @@ class FirstActivity : AppCompatActivity() {
             bundle.putString("userName", "Jack")
             bundle.putInt("userAge", 20)
             intent.putExtra("message", bundle)
-            startActivityForResult(intent, 1)
+           // startActivityForResult(intent, 1)
+            requestDataLauncher.launch(intent)
 //            val it = Intent() //创建一个Intent对象
 
             //使用setComponent方法设置组件名称
@@ -51,6 +55,16 @@ class FirstActivity : AppCompatActivity() {
 //            startActivity(intent)
         }
     }
+
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        when (requestCode) {
+//            1 -> if (resultCode == RESULT_OK) {
+//                val returnData = data?.getStringExtra("data")
+//                Log.d(tag, "$returnData")
+//            }
+//        }
+//    }
 
     override fun onStart() {
         super.onStart()
@@ -87,14 +101,6 @@ class FirstActivity : AppCompatActivity() {
         Log.d(tag, "onRestart")
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        when (requestCode) {
-            1 -> if (resultCode == RESULT_OK) {
-                val returnData = data?.getStringExtra("data")
-                Log.d(tag, "$returnData")
-            }
-        }
-    }
+
 
 }
