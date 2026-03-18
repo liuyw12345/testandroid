@@ -1,6 +1,8 @@
 package cn.edu.nsu.testandroid
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -14,11 +16,18 @@ class SecondActivity : AppCompatActivity() {
         setContentView(R.layout.second_layout)
 //        val userName = intent.getStringExtra("userName")
 //        val userAge = intent.getIntExtra("userAge", 0)
-        val bundle=intent.getBundleExtra("message")
+        val bundle = intent.getBundleExtra("message")
         val userName = bundle?.getString("userName")
         val userAge = bundle?.getInt("userAge")
-        val textview  = findViewById<TextView>(R.id.text2)
+        val textview = findViewById<TextView>(R.id.text2)
+        textview.text = "userName is:$userName,userAge is:$userAge"
+        val backFirstActivity = findViewById<Button>(R.id.button2)
+        backFirstActivity.setOnClickListener {
+            val intent = Intent()
+            intent.putExtra("data", "返回FirstActivity")
+            setResult(RESULT_OK, intent)
+            finish()
 
-        textview.setText("userName is:$userName,userAge is:$userAge")
         }
     }
+}

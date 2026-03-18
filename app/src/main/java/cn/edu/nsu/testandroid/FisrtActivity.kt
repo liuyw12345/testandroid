@@ -29,7 +29,7 @@ class FirstActivity : AppCompatActivity() {
             bundle.putString("userName","Jack")
             bundle.putInt("userAge",20)
             intent.putExtra("message",bundle)
-            startActivity(intent)
+             startActivityForResult(intent,1)
 //            val it = Intent() //创建一个Intent对象
 
             //使用setComponent方法设置组件名称
