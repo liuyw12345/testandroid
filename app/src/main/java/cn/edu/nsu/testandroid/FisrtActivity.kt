@@ -85,6 +85,14 @@ class FirstActivity : AppCompatActivity() {
         super.onRestart()
         Log.d(tag, "onRestart")
     }
-
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (requestCode) {
+            1 -> if (resultCode == RESULT_OK) {
+                val returnData = data?.getStringExtra("data")
+                Log.d(tag,"$returnData")
+            }
+        }
+    }
 
 }
