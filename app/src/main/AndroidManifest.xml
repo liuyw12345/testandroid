@@ -22,7 +22,9 @@
         </activity>
         <activity
             android:name=".SecondActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="首页"
+            android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="com.example.testandroid.MyACTION"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -31,7 +33,8 @@
         </activity>
         <activity
             android:name=".FirstActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label ="登录页">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

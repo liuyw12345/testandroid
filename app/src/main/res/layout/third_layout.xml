@@ -10,4 +10,12 @@
         android:layout_marginTop="156dp"
         android:text="ThirdActivity"
         android:textSize="24sp"></TextView>
+
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="156dp"
+        android:text="Button"></Button>
 </LinearLayout>
