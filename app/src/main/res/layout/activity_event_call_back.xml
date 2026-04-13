@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="16dp"
+    android:background="@android:color/white"
+    tools:context=".EventCallBackActivity">
+
+    <cn.edu.nsu.testandroid.MyButton
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button基于回调的事件处理"
+        android:textSize="24sp"
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_blue_dark"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:layout_marginTop="56dp"
+        android:elevation="4dp"
+        android:stateListAnimator="@android:animator/fade_in"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- 可选：添加说明文字 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击按钮测试回调事件"
+        android:textSize="16sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginTop="32dp"
+        android:visibility="visible" />
+
+</LinearLayout>

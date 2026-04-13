@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- XML 声明：指定 XML 版本和编码格式 -->
+
+<!--
+    网格布局 (GridLayout)
+    android:layout_width="wrap_content"       - 宽度：根据内容自动调整
+    android:layout_height="wrap_content"      - 高度：根据内容自动调整
+    android:layout_gravity="center_horizontal" - 位置：在父布局中水平居中
+    android:layout_marginTop="56dp"            - 外边距：顶部留出 56dp，防止被标题栏遮挡
+    android:columnCount="4"                    - 列数：设置网格为 4 列
+    android:orientation="horizontal"          - 方向：组件按水平方向排列
+    android:rowCount="6"                       - 行数：设置网格为 6 行
+    android:useDefaultMargins="true"           - 间距：使用系统默认的组件边距
+-->
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="56dp"
+    android:columnCount="4"
+    android:orientation="horizontal"
+    android:rowCount="6"
+    android:useDefaultMargins="true">
+
+    <!--
+        计算器显示框 (EditText)
+        android:layout_columnSpan="4"   - 跨度：横跨 4 列（占据整行）
+        android:layout_columnWeight="1" - 权重：横向自动填满剩余空间
+    -->
+    <EditText
+        android:layout_columnSpan="4"
+        android:layout_columnWeight="1" />
+
+    <!-- 数字 1 按钮：id 为 one，显示文本为 1 -->
+    <Button
+        android:id="@+id/one"
+        android:text="1" />
+
+    <!-- 数字 2 按钮：id 为 two，显示文本为 2 -->
+    <Button
+        android:id="@+id/two"
+        android:text="2" />
+
+    <!-- 数字 3 按钮：id 为 three，显示文本为 3 -->
+    <Button
+        android:id="@+id/three"
+        android:text="3" />
+
+    <!-- 除法按钮：id 为 devide，显示文本为 / -->
+    <Button
+        android:id="@+id/devide"
+        android:text="/" />
+
+    <!-- 数字 4 按钮：id 为 four，显示文本为 4 -->
+    <Button
+        android:id="@+id/four"
+        android:text="4" />
+
+    <!-- 数字 5 按钮：id 为 five，显示文本为 5 -->
+    <Button
+        android:id="@+id/five"
+        android:text="5" />
+
+    <!-- 数字 6 按钮：id 为 six，显示文本为 6 -->
+    <Button
+        android:id="@+id/six"
+        android:text="6" />
+
+    <!-- 乘法按钮：id 为 multiply，显示文本为 × -->
+    <Button
+        android:id="@+id/multiply"
+        android:text="×" />
+
+    <!-- 数字 7 按钮：id 为 seven，显示文本为 7 -->
+    <Button
+        android:id="@+id/seven"
+        android:text="7" />
+
+    <!-- 数字 8 按钮：id 为 eight，显示文本为 8 -->
+    <Button
+        android:id="@+id/eight"
+        android:text="8" />
+
+    <!-- 数字 9 按钮：id 为 nine，显示文本为 9 -->
+    <Button
+        android:id="@+id/nine"
+        android:text="9" />
+
+    <!-- 减法按钮：id 为 minus，显示文本为 - -->
+    <Button
+        android:id="@+id/minus"
+        android:text="-" />
+
+    <!--
+        数字 0 按钮
+        android:id="@+id/zero"          - ID 命名为 zero
+        android:layout_columnSpan="2"   - 跨度：占据 2 列宽度
+        android:layout_gravity="fill"   - 填充：拉伸填满这 2 列的空间
+        android:text="0"                - 文本：显示 0
+    -->
+    <Button
+        android:id="@+id/zero"
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill"
+        android:text="0" />
+
+    <!-- 小数点按钮：id 为 point，显示文本为 . -->
+    <Button
+        android:id="@+id/point"
+        android:text="." />
+
+    <!--
+        加法按钮
+        android:id="@+id/plus"        - ID 命名为 plus
+        android:layout_rowSpan="2"    - 跨度：占据 2 行高度
+        android:layout_gravity="fill" - 填充：垂直拉伸填满这 2 行的空间
+        android:text="+"              - 文本：显示 +
+    -->
+    <Button
+        android:id="@+id/plus"
+        android:layout_rowSpan="2"
+        android:layout_gravity="fill"
+        android:text="+" />
+
+    <!--
+        等号按钮
+        android:id="@+id/equal"        - ID 命名为 equal
+        android:layout_columnSpan="3"  - 跨度：占据 3 列宽度
+        android:layout_gravity="fill"  - 填充：水平拉伸填满这 3 列的空间
+        android:text="="               - 文本：显示 =
+    -->
+    <Button
+        android:id="@+id/equal"
+        android:layout_columnSpan="3"
+        android:layout_gravity="fill"
+        android:text="=" />
+
+
+</GridLayout>
